@@ -55,11 +55,13 @@ const ImageBoxComponent = () => {
       <div style = {{rotate:"calc(90deg)"}}>
         <label>Zoom:</label>
         <input type="range" min="1" max="10" value={zoom} onChange={handleZoomChange} />
+        <output>{zoom}</output>
       </div>
       </div>
       <div className="saturation-slider-container">
         <label>Saturation:</label>
-        <input type="range" min="0" max="100" value={saturation} onChange={handleSaturationChange} />
+        <input type="range" value={saturation} onChange={handleSaturationChange} min="1" max="100" ></input>
+        <output>{saturation}</output>
       </div>
     </div>
   );
