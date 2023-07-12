@@ -38,7 +38,6 @@ const ImageBoxComponent = () => {
           height: '432px',
           backgroundImage: `url(${imageUrl})`,
           backgroundSize: `100%`,
-          filter: `saturate(${saturation}%)`
         }}
       >
         <div
@@ -48,7 +47,8 @@ const ImageBoxComponent = () => {
             left: `${cursorPosition.x - 50}px`,
             backgroundPosition: `-${(cursorPosition.x) * zoom}px -${(cursorPosition.y) * zoom}px`,
             backgroundImage: `url(${imageUrl})`,
-            backgroundSize: `${zoom * 800}%`
+            backgroundSize: `${zoom * 800}%`,
+            filter: `saturate(${saturation}%)`
           }}
         ></div>
       </div>
