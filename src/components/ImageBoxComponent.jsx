@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './ImageBoxComponent.css';
 import MyImage from '../18492-city-cityscape-metropolitan_area-capital_city-the_hague-7680x4320.jpg';
 
@@ -25,6 +25,38 @@ const ImageBoxComponent = () => {
 
     setCursorPosition({ x: cursorX, y: cursorY });
   };
+
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 37) {
+      setSaturation((prevSaturation) => Math.max(prevSaturation - 10, 0));
+    } else if (event.keyCode === 39) {
+      setSaturation((prevSaturation) => Math.min(prevSaturation + 10, 100));
+    }
+  };
+
+  useEffect(() => {
+    const handleMouseWheel = (event) => {
+      if (event.deltaY > 0) {
+        setZoom((prevZoom) => Math.max(prevZoom - 1, 1));
+      } else if (event.deltaY < 0) {
+        setZoom((prevZoom) => Math.min(prevZoom + 1, 10));
+      }
+    };
+
+    window.addEventListener('wheel', handleMouseWheel);
+
+    return () => {
+      window.removeEventListener('wheel', handleMouseWheel);
+    };
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, []);
 
   return (
     <div className="container">
