@@ -17,6 +17,7 @@
     border-radius: 50%;
     border: 2px solid red;
     pointer-events: none;
+    background-repeat: no-repeat;
   }
   
   .saturation-slider-container {
