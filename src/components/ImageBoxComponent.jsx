@@ -43,8 +43,8 @@ const ImageBoxComponent = () => {
         <div
           className="zoom-circle"
           style={{
-            top: `${cursorPosition.y - 50}px`,
-            left: `${cursorPosition.x + 50}px`,
+            top: `${cursorPosition.x < 700 ?  cursorPosition.y - 50 : cursorPosition.y > 120 ? cursorPosition.y - 150 : cursorPosition.y + 50}px`,
+            left: `${cursorPosition.x < 700 ? cursorPosition.x + 50 : 700}px`,
             backgroundPosition: `-${(cursorPosition.x) * zoom}px -${(cursorPosition.y) * zoom}px`,
             backgroundImage: `url(${imageUrl})`,
             backgroundSize: `${zoom * 800}%`,
